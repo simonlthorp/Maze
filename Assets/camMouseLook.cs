@@ -34,21 +34,21 @@ public class camMouseLook : MonoBehaviour {
 
         mouseLook.y = Mathf.Clamp(mouseLook.y, -90f, 90f);
 
+        rotateCam = Quaternion.AngleAxis(-mouseLook.y, Vector3.right);
+        rotateChar = Quaternion.AngleAxis(mouseLook.x, character.transform.up);
 
+        transform.localRotation = rotateCam;
+        character.transform.localRotation = rotateChar;
 
         if (Input.GetAxis("Fire2") != 0) {
             if (Input.GetAxisRaw("Fire2") != 0) {
                 rotateCam = Quaternion.identity;
                 rotateChar = Quaternion.identity;
+                mouseLook = Vector2.zero;
             }
         }
-        else {
-            rotateCam = Quaternion.AngleAxis(-mouseLook.y, Vector3.right);
-            rotateChar = Quaternion.AngleAxis(mouseLook.x, character.transform.up);
-        }
 
-        transform.localRotation = rotateCam;
-        character.transform.localRotation = rotateChar;
+        
     }
 
 }
