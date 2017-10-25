@@ -38,17 +38,6 @@ public class move : MonoBehaviour {
             }
         }
 
-        yaw += speedH * Input.GetAxis("Mouse X");
-        pitch += speedV * Input.GetAxis("Mouse Y");
-
-        transform.eulerAngles = new Vector3(pitch, yaw, 0.0f);
-
-/*        if (transform.position.y > 1.5) {
-            rb.transform.position = new Vector3(rb.position.x, 1, rb.position.z);
-            Debug.Log("up");
-        }*/
-
-
     }
 
     void FixedUpdate() {
