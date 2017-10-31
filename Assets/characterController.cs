@@ -26,10 +26,8 @@ public class characterController : MonoBehaviour {
 
         transform.Translate(straffe, 0, translation);
 
-        if (Input.GetAxis("Fire1") != 0) {
-            if (Input.GetAxisRaw("Fire1") != 0) {
-                walkThroughWalls();
-            }
+        if (Input.GetAxisRaw("Fire1") != 0) {
+            walkThroughWalls();
         }
 
         if (Input.GetAxis("Fire2") != 0) {
@@ -38,7 +36,13 @@ public class characterController : MonoBehaviour {
             }
         }
 
-        if (Input.GetKeyDown("escape")) {
+        if (Input.GetAxis("Cancel") != 0) {
+            if (Input.GetAxisRaw("Cancel") != 0) {
+                Application.Quit();
+            }
+        }
+
+        if (Input.GetKeyDown("`")) {
             Cursor.lockState = CursorLockMode.None;
         }
 	}
