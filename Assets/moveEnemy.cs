@@ -10,6 +10,7 @@ public class moveEnemy : MonoBehaviour {
     public LayerMask whatIsWall;
     public float maxDistanceFromWall = 0f;
     public float sideDistanceFromWall = 0f;
+    private Vector3 enemyPosition;
 
 	// Use this for initialization
 	void Start () {
@@ -19,6 +20,8 @@ public class moveEnemy : MonoBehaviour {
         transform.rotation = Quaternion.LookRotation(moveDir);
 
         InvokeRepeating("SideCorridorCheck", 3.0f, 1.0f);
+
+        enemyPosition = transform.position;
     }
 
     // Update is called once per frame
@@ -31,6 +34,8 @@ public class moveEnemy : MonoBehaviour {
             ChangeDirection();
             Debug.Log("raycast back");
         }
+
+        
 
     }
 
